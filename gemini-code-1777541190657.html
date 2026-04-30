@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OverCity RP | الموقع الرسمي</title>
+    <style>
+        :root {
+            --primary-purple: #8a2be2;
+            --gold: #ffd700;
+            --dark-red: #8b0000; 
+            --founder-blue: #00ced1;
+            --admin-orange: #e67e22; 
+            --support-green: #2ecc71; 
+            --bg-black: #050505;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-black);
+            color: white;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(138, 43, 226, 0.1), transparent);
+            z-index: -1;
+            animation: pulseGlow 8s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { opacity: 0.5; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.2); }
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(to bottom, #1a0033, var(--bg-black));
+        }
+
+        .logo {
+            width: 200px;
+            filter: drop-shadow(0 0 20px var(--primary-purple));
+            margin-bottom: 15px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: var(--gold);
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+            letter-spacing: 2px;
+        }
+
+        .discord-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 15px 45px;
+            background-color: transparent;
+            color: white;
+            border: 2px solid var(--primary-purple);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.4s;
+            box-shadow: 0 0 15px var(--primary-purple);
+        }
+
+        .discord-btn:hover {
+            background: var(--primary-purple);
+            box-shadow: 0 0 40px var(--primary-purple);
+            transform: scale(1.1);
+        }
+
+        section { padding: 60px 10%; border-bottom: 1px solid #1a1a1a; }
+        h2 { border-right: 6px solid var(--gold); padding-right: 15px; margin-bottom: 40px; display: flex; align-items: center; gap: 15px; }
+
+        /* صور الرتب والتحديثات */
+        .rank-img { width: 100%; max-width: 400px; display: block; margin: 0 auto 20px auto; border-radius: 15px; filter: drop-shadow(0 0 10px rgba(0,0,0,0.5)); transition: 0.5s; }
+        .rank-group:hover .rank-img { transform: scale(1.02); filter: drop-shadow(0 0 20px var(--gold)); }
+        
+        .update-main-img { width: 100%; max-width: 600px; border-radius: 20px; margin-bottom: 30px; border: 2px solid var(--gold); box-shadow: 0 0 30px rgba(255, 215, 0, 0.2); }
+
+        .updates-container { display: flex; flex-direction: column; gap: 15px; }
+        .update-card { background: #111; padding: 20px; border-radius: 12px; border-right: 5px solid var(--gold); border: 1px solid #222; }
+        .update-info { color: var(--gold); font-size: 0.85rem; font-weight: bold; display: block; margin-bottom: 5px; }
+
+        .rank-group { border-radius: 15px; overflow: hidden; margin-bottom: 50px; border: 1px solid #222; transition: 0.3s; background: rgba(0,0,0,0.3); padding-bottom: 20px; }
+        .rank-header { padding: 20px; font-weight: 900; font-size: 1.6rem; text-align: center; color: white; text-transform: uppercase; margin-bottom: 10px; }
+        
+        .owners-h { background: linear-gradient(90deg, var(--dark-red), #330000); }
+        .founders-h { background: linear-gradient(90deg, var(--founder-blue), #004444); color: white; }
+        .mgmt-h { background: linear-gradient(90deg, var(--primary-purple), #220044); }
+        .admins-h { background: linear-gradient(90deg, var(--admin-orange), #442200); }
+        .supports-h { background: linear-gradient(90deg, var(--support-green), #003300); }
+
+        .names-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 10px 30px; }
+        .name-tag { background: #111; padding: 12px 30px; border-radius: 10px; border: 1px solid #333; text-align: center; min-width: 160px; transition: 0.3s; }
+        .name-tag strong { display: block; font-size: 1.2rem; }
+        .name-tag span { display: block; font-size: 0.9rem; color: var(--gold); }
+        
+        .apply-btn { display: inline-block; margin-top: 15px; padding: 10px 25px; background: var(--gold); color: black; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; }
+        .apply-btn:hover { background: white; transform: translateY(-3px); }
+
+        .suggestion-box { background: #0f0f0f; padding: 30px; border-radius: 20px; border: 1px solid #222; }
+        input, textarea { width: 100%; padding: 15px; margin: 10px 0; background: #181818; border: 1px solid #333; color: white; border-radius: 10px; box-sizing: border-box; font-family: inherit; }
+        .submit-btn { background: var(--gold); color: black; border: none; padding: 15px; cursor: pointer; font-weight: 900; width: 100%; border-radius: 10px; font-size: 1.1rem; }
+
+        footer { background: #000; padding: 50px 20px; text-align: center; border-top: 2px solid var(--primary-purple); color: #888; }
+        .footer-logo { width: 80px; opacity: 0.5; margin-bottom: 15px; }
+        
+        /* روابط التواصل الاجتماعي */
+        .social-links { margin-bottom: 25px; display: flex; justify-content: center; gap: 20px; }
+        .social-links a { color: var(--gold); text-decoration: none; font-weight: bold; padding: 8px 15px; border: 1px solid #333; border-radius: 8px; transition: 0.3s; }
+        .social-links a:hover { background: var(--gold); color: black; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="https://a.top4top.io/p_3771q4v8c0.png" alt="OverCity Logo" class="logo">
+        <h1>OVERCITY ROLEPLAY</h1>
+        <a href="https://discord.gg/64cZtxkCu" target="_blank" class="discord-btn">JOIN OUR DISCORD</a>
+    </header>
+
+    <section id="updates">
+        <h2>سجل التحديثات | UPDATES</h2>
+        <center><img src="https://i.postimg.cc/qBhcRpb8/1000004232.png" class="update-main-img" alt="Updates"></center>
+        <div class="updates-container">
+            <div class="update-card"><span class="update-info">29 أبريل 2026 | 07:34</span>تحديث HUD (الواجهة)</div>
+            <div class="update-card"><span class="update-info">28 أبريل 2026 | 09:12</span>تحديث نظام الخزنة (Safe system)</div>
+            <div class="update-card"><span class="update-info">27 أبريل 2026 | 08:11</span>إضافة وظائف جديدة (New Jobs)</div>
+            <div class="update-card"><span class="update-info">26 أبريل 2026 | 09:25</span>تحديث نظام الشقق (Apartment system)</div>
+            <div class="update-card"><span class="update-info">24 أبريل 2026 | 09:51</span>تحديث Hud Money and Chat System + وظيفة الكاشير</div>
+            <div class="update-card"><span class="update-info">23 أبريل 2026 | 09:24</span>حقيبة الظهر (Inventory) + اختيار الشخصية</div>
+        </div>
+    </section>
+
+    <section id="staff">
+        <h2>الطاقم الإداري | STAFF TEAM</h2>
+        
+        <div class="rank-group">
+            <div class="rank-header owners-h">OWNERS - الملاك</div>
+            <img src="https://i.postimg.cc/8kJd5TKR/1000004239.png" class="rank-img">
+            <div class="names-list">
+                <div class="name-tag"><strong>Anis</strong><span>أنيس</span></div>
+                <div class="name-tag"><strong>Speedi</strong><span>سبيدي</span></div>
+                <div class="name-tag"><strong>Barnine</strong><span>بارنين</span></div>
+                <div class="name-tag"><strong>S1leent</strong><span>سايلنت</span></div>
+            </div>
+        </div>
+
+        <div class="rank-group">
+            <div class="rank-header founders-h">FOUNDERS - المؤسسين</div>
+            <img src="https://i.postimg.cc/vTV5Svx8/1000004222.png" class="rank-img">
+            <div class="names-list">
+                <div class="name-tag"><strong>ISMAIL</strong><span>اسماعيل</span></div>
+            </div>
+        </div>
+
+        <div class="rank-group">
+            <div class="rank-header mgmt-h">MANAGEMENT - الإدارة العليا</div>
+            <img src="https://i.postimg.cc/v8g7BGq7/Picsart-26-04-30-09-38-56-661.png" class="rank-img">
+            <div class="names-list">
+                <div class="name-tag"><strong>ABDERZARK</strong><span>عبد رزاق</span></div>
+                <div class="name-tag"><strong>AmarKinG</strong><span>عمار كينج</span></div>
+            </div>
+        </div>
+
+        <div class="rank-group">
+            <div class="rank-header admins-h">ADMINS - الإداريين</div>
+            <img src="https://i.postimg.cc/tJxFmzn9/1000004224.png" class="rank-img">
+            <div class="names-list">
+                <div class="name-tag"><strong>Mohamed</strong><span>محمد</span></div>
+                <center style="width:100%"><a href="https://discord.gg/64cZtxkCu" target="_blank" class="apply-btn">فتح تذكرة إدارة</a></center>
+            </div>
+        </div>
+
+        <div class="rank-group">
+            <div class="rank-header supports-h">SUPPORTS - الدعم الفني</div>
+            <img src="https://i.postimg.cc/8c6LnbfQ/1000004233.png" class="rank-img">
+            <div class="names-list">
+                <p style="color: #888; font-style: italic;">باب التقديم مفتوح حالياً</p>
+                <center style="width:100%"><a href="https://discord.gg/64cZtxkCu" target="_blank" class="apply-btn">تقديم للرتبة</a></center>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="suggestions">
+        <h2>صندوق الاقتراحات | SUGGESTIONS</h2>
+        <div class="suggestion-box">
+            <input type="text" id="userName" placeholder="اسمك داخل اللعبة">
+            <textarea id="userText" rows="4" placeholder="اكتب فكرتك هنا..."></textarea>
+            <button onclick="addSuggestion()" class="submit-btn">نشر الاقتراح للجميع</button>
+            <div id="display-suggestions"></div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.tiktok.com/@overcityrp.ofic?_r=1&_t=ZS-95xzkBChqPk" target="_blank">TikTok</a>
+            <a href="https://x.com/OverCityRp" target="_blank">Twitter</a>
+            <a href="https://discord.gg/64cZtxkCu" target="_blank">Discord</a>
+        </div>
+        <img src="https://a.top4top.io/p_3771q4v8c0.png" class="footer-logo">
+        <p>© 2026 OVERCITY ROLEPLAY. جميع الحقوق محفوظة.</p>
+        <p style="font-size: 0.8rem;">Developed with Love for the Community</p>
+    </footer>
+
+    <script>
+        function addSuggestion() {
+            const name = document.getElementById('userName').value;
+            const text = document.getElementById('userText').value;
+            if(name.trim() === "" || text.trim() === "") { alert("يرجى ملء جميع الخانات!"); return; }
+            const container = document.getElementById('display-suggestions');
+            const newSuggest = document.createElement('div');
+            newSuggest.className = 'suggest-item';
+            newSuggest.innerHTML = `<strong>${name}:</strong> <p style="margin:5px 0 0 0; color: #ccc;">${text}</p>`;
+            container.prepend(newSuggest);
+            document.getElementById('userName').value = "";
+            document.getElementById('userText').value = "";
+        }
+    </script>
+</body>
+</html>
